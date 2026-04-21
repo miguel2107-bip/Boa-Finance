@@ -4,34 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resgistrar-Boa-Finance</title>
+    <link rel="stylesheet" href="rstyle.css">
 </head>
 <body>
+    <main class="register">
     <form>
         <div>
-            <div><label>Email</label></div>
+            <div class="email"><label>Email</label>
             <input type="email" placeholder="seu@email.com">
         </div>
 
-        <div>
+        <div class="senha">
            <div><label>Senha</label></div>
             <input type="password" placeholder="Senha">
         </div>
 
-        <div>
+        <div class="Confirmar">
             <div><label>Confirmar senha</label></div>
             <input type="password" placeholder="Confirmar senha">
 
         </div>
 
         <div>
-            <button type="button">Registrar</button>
+            <button type="button" class="Registrar" onclick="Register()">Registrar</button>
         </div>
         
         <div>
-            <button type="button" onclick="Logar()">Login</button>
+            <button type="button" class="Login" onclick="Logar()">Login</button>
         </div>
     </form>
-    
+    </main>
 </body>
 <script src="script.js"></script>
 </html>
