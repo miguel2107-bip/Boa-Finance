@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova-Transação</title>
+    <link rel="stylesheet" href="nt.css">
+</head>
+<body>
+    <div class="container">
+
+        <div class="card">
+            <h2>Nova Transação</h2>
+            <form>
+
+                <div>
+                    <label>Descrição</label>
+                    <input type="text" placeholder="Ex:Supermercado, Salário ..." required>
+                </div>
+                
+
+                <div>
+                    <label>Valor</label>
+                    <input type="number" placeholder="R$ 0,00" required>
+                </div>
+
+
+                <div>
+                    <label>Tipo</label>
+                    <select>
+                        <option>Receita</option>
+                        <option>Despesa</option>
+                    </select>
+                </div>    
+                
+                <div>
+                     <label>Categoria</label>
+                    <select>
+                        <option>Alimentação</option>
+                        <option>Transporte</option>
+                        <option>Lazer</option>
+                        <option>Salário</option>
+                        <option>Outros</option>
+                    </select>
+                </div>    
+
+                    <div>
+                        <label>Data</label>
+                        <input type="date">
+                    </div>
+
+                    <button onclick="Inicio()" type="submit">Salvar Transação</button>
+                
+            </form>
+
+        </div>
+    </div>
+
+    
+</body>
+</html>
