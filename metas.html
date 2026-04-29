@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Metas Financeiras</title>
+  <link rel="stylesheet" href="metas.css">
+</head>
+
+<body>
+
+  <main class="metas-page">
+
+    <header class="topo-metas">
+      <h1>Minhas Metas</h1>
+      <p>Organize seus objetivos financeiros com inteligência</p>
+    </header>
+
+    <section class="resumo-metas">
+      <div class="card-principal">
+        <h2>Saldo disponível</h2>
+
+        <div class="saldo-meta" id="saldoDisponivel">
+          R$ 0,00
+        </div>
+
+        <p class="mensagem-meta">
+          Sua liberdade financeira começa com consistência 🚀
+        </p>
+
+        <button class="btn-meta" onclick="novaMeta()">
+          + Nova Meta
+        </button>
+      </div>
+    </section>
+
+    <section class="lista-metas" id="listaMetas">
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
