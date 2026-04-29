@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Orçamento</title>
+  <link rel="stylesheet" href="orçamento.css">
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <h2>BoaFinance</h2>
+      <ul>
+        <button>
+          <li onclick="Inicio()">Início</li>
+        </button>
+        <li onclick="Transações()">Transações</li>
+        <li class="active">Orçamento</li>
+        <li>Relatórios</li>
+        <li>Investimentos</li>
+      </ul>
+    </aside>
+
+    <!-- Conteúdo -->
+    <main class="main">
+
+      <div class="topo">
+        <h1>Orçamento Mensal</h1>
+        <button class="btn">+ Novo Limite</button>
+      </div>
+
+      <!-- Cards de orçamento -->
+      <div class="orcamentos">
+
+        <div class="card">
+          <h3>Alimentação</h3>
+          <p>R$ 800 / R$ 1.000</p>
+          <div class="barra">
+            <div class="progresso" style="width: 80%;"></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Transporte</h3>
+          <p>R$ 300 / R$ 500</p>
+          <div class="barra">
+            <div class="progresso" style="width: 60%;"></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Lazer</h3>
+          <p>R$ 200 / R$ 400</p>
+          <div class="barra">
+            <div class="progresso" style="width: 50%;"></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Contas</h3>
+          <p>R$ 900 / R$ 900</p>
+          <div class="barra">
+            <div class="progresso cheio" style="width: 100%;"></div>
+          </div>
+        </div>
+
+      </div>
+
+    </main>
+
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>
