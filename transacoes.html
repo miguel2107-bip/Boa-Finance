@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Transações</title>
+  <link rel="stylesheet" href="transações.css">
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <h2>BoaFinance</h2>
+      <ul>
+        <li onclick="Inicio()">Início</li>
+        <li class="active">Transações</li>
+        <li onclick="Orçamento()">Orçamento</li>
+        <li>Relatórios</li>
+        <li>Investimentos</li>
+      </ul>
+    </aside>
+
+    <!-- Conteúdo -->
+    <main class="main">
+
+      <div class="topo">
+        <h1>Transações</h1>
+        <button class="btn">+ Nova Transação</button>
+      </div>
+
+      <!-- Lista -->
+      <div class="lista">
+
+        <div class="item">
+          <span>🍔 iFood</span>
+          <span class="negativo">- R$ 47,90</span>
+        </div>
+
+        <div class="item">
+          <span>💼 Salário</span>
+          <span class="positivo">+ R$ 5.500,00</span>
+        </div>
+
+        <div class="item">
+          <span>📺 Netflix</span>
+          <span class="negativo">- R$ 39,90</span>
+        </div>
+
+        <div class="item">
+          <span>🛒 Supermercado</span>
+          <span class="negativo">- R$ 286,70</span>
+        </div>
+
+        <div class="item">
+          <span>⛽ Combustível</span>
+          <span class="negativo">- R$ 180,00</span>
+        </div>
+
+      </div>
+
+    </main>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
