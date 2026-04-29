@@ -11,26 +11,37 @@ body{
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background:url(./boa.jpg);
+    background:url(https://shrill-sapphire-yfrjilfjvz.edgeone.app/fundo.boa.png);
     background-size: cover;
     background-position: center;
+    background-color: #050505;
 }
 
 .container{
     width: 420px;
-    background-color: transparent;
+    background-color: rgba(255, 255, 255, 0.05);
     border: 2px solid rgba(255, 255, 255, .2);
     border-radius: 10px;
     color: white;
     padding: 30px 40px;
-    box-shadow: 0 0 10 px rgba(0, 0, 0, .2);
-    
-
+    box-shadow: 0 0 10 px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.7s ease-out;
+}
+/* animação de entrada do card de login */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(25px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .container h1{
     font-size: 30px;
     text-align: center;
+    font-weight: 700;
+    letter-spacing: 1px;
+    background: linear-gradient(90deg, #fff, #00ff22);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .input-box{
@@ -87,19 +98,19 @@ body{
 .login{
     width: 100%;
     height: 50px;
-    background-color:white ;
-    border: none;
+    background-color:transparent;
+    border: 2px solid #333;
     border-radius: 40px;
     cursor: pointer;
     font-size: 16px;
-    color: #333;
+    color: white;
     font-weight: 600;
-    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    box-shadow: 0 0 10px rgba(0, 223, 11, 0.151);
 }
 
 .login:hover{
     background-color: transparent;
-    border: 2px solid rgba(255, 255, 255, .2);
+    border: 2px solid rgba(255, 255, 255, 0.363);
     color: white;
     transition: 0.5s;
 }
@@ -107,7 +118,7 @@ body{
 .register-link{
     font-size: 14px;
     text-align: center;
-    margin: 20 px 0 15px
+    margin: 20px 0 10px
 }
 
 .register-link a {
@@ -118,4 +129,45 @@ body{
 
 .register-link a:hover{
     text-decoration: underline;
+}
+
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.checkbox-label input {
+    display: none; /* Esconde o original */
+}
+
+.custom-checkbox {
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    margin-right: 7px;
+    display: inline-block;
+    position: relative;
+    transition: 0.3s;
+}
+
+.checkbox-label input:checked + .custom-checkbox {
+    background: #00ff22;
+    border-color: #00df1e;
+    box-shadow: 0 0 10px rgba(0, 255, 98, 0.404);
+}
+
+.checkbox-label input:checked + .custom-checkbox::after {
+    content: '\2713'; /* Símbolo de Check */
+    position: absolute;
+    color: #050505;
+    font-size: 11px;
+    font-weight: bold;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
