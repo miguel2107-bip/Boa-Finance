@@ -1,69 +1,337 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home-Boa-Finance</title>
-    <link rel="stylesheet" href="style-home.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BoaFinance — Painel</title>
+  <link rel="stylesheet" href="home.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=IBM+Plex+Mono:wght@400;500&family=Outfit:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
+
 <body>
-    <header>
-        <h1>Boa-Finance</h1>
-        <nav>
-            <ul class="Visão-Geral">
-                <li><a href="#">Dashboard</a></li>
-                <li><a href="#">Transações</a></li>
-                <li><a href="#">Relatórios</a></li>
-            </ul>
-              <label>Pesquisar</label>
-             <input type="search" placeholder="🔍︎​Pesquisar Transações">
-             <button type="button">+ Nova Transação</button>
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-            
-            <button class="btn">
-                <i class="fa-solid fa-bell"></i>
-            </button>
-        </nav>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <span class="logo-icon">₿</span>
+      <span class="logo-text">Boa<b>Finance</span>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a href="#" class="nav-item active">
+        <svg viewBox="0 0 24 24">
+          <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+          <polyline points="9 22 9 12 15 12 15 22" />
+        </svg>
+        <span>Início</span>
+      </a>
+      <a href="#" onclick="Transação() " class="nav-item">
+        <svg viewBox="0 0 24 24">
+          <line x1="12" y1="1" x2="12" y2="23" />
+          <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" />
+        </svg>
+        <span>Transações</span>
+      </a>
+      <a href="#" onclick="Orçamento()" class="nav-item">
+        <svg viewBox="0 0 24 24">
+          <rect x="2" y="3" width="20" height="14" rx="2" />
+          <line x1="8" y1="21" x2="16" y2="21" />
+          <line x1="12" y1="17" x2="12" y2="21" />
+        </svg>
+        <span>Orçamento</span>
+      </a>
+      <a href="#" class="nav-item">
+        <svg viewBox="0 0 24 24">
+          <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+        </svg>
+        <span>Relatórios</span>
+      </a>
+      <a href="#" class="nav-item">
+        <svg viewBox="0 0 24 24">
+          <path
+            d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z" />
+        </svg>
+        <span>Investimentos</span>
+      </a>
+      <a href="metas.html" class="nav-item">
+        <svg viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="3" />
+          <path d="M19.07 4.93A10 10 0 115 19.07" />
+        </svg>
+        <span>Metas</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="user-avatar">L</div>
+      <div class="user-info">
+        <span class="user-name">Lucas Mendes</span>
+        <span class="user-plan">Plano Pro</span>
+      </div>
+      <a href="login.html" class="logout-btn" title="Sair">
+        <svg viewBox="0 0 24 24">
+          <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4" />
+          <polyline points="16 17 21 12 16 7" />
+          <line x1="21" y1="12" x2="9" y2="12" />
+        </svg>
+      </a>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="main">
+
+    <!-- TOPBAR -->
+    <header class="topbar">
+      <div class="topbar-left">
+        <h1 class="page-title">Visão Geral</h1>
+        <span class="page-date">Abril 2026</span>
+      </div>
+      <div class="topbar-right">
+        <div class="search-bar">
+          <svg viewBox="0 0 24 24">
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
+          <input type="text" placeholder="Pesquisar transações..." />
+        </div>
+        <button onclick="NT()" class="btn-add">
+          <svg viewBox="0 0 24 24">
+            <line x1="12" y1="5" x2="12" y2="19" />
+            <line x1="5" y1="12" x2="19" y2="12" />
+          </svg>
+          Nova Transação
+        </button>
+        <div class="notif-bell">
+          <svg viewBox="0 0 24 24">
+            <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9" />
+            <path d="M13.73 21a2 2 0 01-3.46 0" />
+          </svg>
+          <span class="notif-dot"></span>
+        </div>
+      </div>
     </header>
 
-    <main>
-         
-        <div>
-            <h3>Saldo Total</h3>
-            <h2>R$ 2500,00</h2>
-            <p>↑8,3% este mês</p>
+    <!-- CARDS DE RESUMO -->
+    <section class="summary-cards">
+
+      <div class="card card-balance reveal">
+        <div class="card-label">Saldo Total</div>
+        <div class="card-value gold" id="saldoTotal" >R$ 0,00</div>
+        <div class="card-trend" id="trendSaldo"> Comparando meses... </div>
+        <div class="card-bar">
+          <div class="card-bar-fill" style="width:68%"></div>
+        </div>
+        <div class="card-glow"></div>
+      </div>
+
+      <div class="card card-income reveal" style="animation-delay:.1s">
+        <div class="card-label">Receitas</div>
+        <div class="card-value green" id="totalReceitas">R$ 0,00</div>
+        <div class="card-trend" id="trendReceitas"> Comparando meses... </div>
+        <div class="card-icon green-icon">
+          <svg viewBox="0 0 24 24">
+            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+            <polyline points="17 6 23 6 23 12" />
+          </svg>
+        </div>
+      </div>
+
+      <div class="card card-expense reveal" style="animation-delay:.2s">
+        <div class="card-label">Despesas</div>
+        <div class="card-value red" id="totalDespesas" >R$ 0,00</div>
+        <div class="card-trend" id="trendDespesas"> Comparando meses... </div>
+        <div class="card-icon red-icon">
+          <svg viewBox="0 0 24 24">
+            <polyline points="23 18 13.5 8.5 8.5 13.5 1 6" />
+            <polyline points="17 18 23 18 23 12" />
+          </svg>
+        </div>
+      </div>
+
+      <div class="card card-savings reveal" style="animation-delay:.3s">
+    <div class="card-label">META FINANCEIRA</div>
+
+    <div class="card-value amber" id="valorMetaAtual">
+        R$ 0,00
+    </div>
+
+    <div class="card-trend up" id="textoMeta">
+        Meta: R$ 0,00
+    </div>
+
+    <button class="btn-meta" onclick="editarMeta()">
+        Editar Meta
+    </button>
+
+    <div class="meta-bottom">
+
+        <div class="progress-ring">
+    <svg viewBox="0 0 120 120">
+
+        <!-- fundo -->
+        <circle
+            class="ring-bg"
+            cx="60"
+            cy="60"
+            r="45"
+        />
+
+        <!-- progresso -->
+        <circle
+            class="ring-fill"
+            id="circuloMeta"
+            cx="60"
+            cy="60"
+            r="45"
+        />
+
+    </svg>
+
+    <span class="ring-label" id="porcentagemMeta">
+        0%
+    </span>
+</div>
+
+        <div class="meta-msg" id="mensagemMeta">
+            Sua jornada financeira começa agora 🚀
         </div>
 
-        <div>
-            <h3>Receita</h3>
-            <h2>R$ 3000,00</h2>
-            <p>↑12% mês anterior</p>
+    </div>
+</div>
+
+    </section>
+
+    <!-- GRÁFICO + TRANSAÇÕES -->
+    <section class="middle-section">
+
+      <!-- GRÁFICO DE BARRAS (SVG puro) -->
+      <div class="chart-card reveal" style="animation-delay:.4s">
+        <div class="chart-header">
+          <h2>Receitas vs Despesas</h2>
+          <div class="chart-legend">
+            <span class="legend-dot green-dot"></span> Receitas
+            <span class="legend-dot red-dot"></span> Despesas
+          </div>
+        </div>
+        <div class="chart-area">
+          <div class="grafico-container">
+            <canvas id="graficoBarra"></canvas>
+          </div>
+          <div class="chart-months">
+            <span>Jan</span><span>Fev</span><span>Mar</span><span>Abr</span><span>Mai</span><span>Jun</span>
+          </div>
+        </div>
+      </div>
+
+      <section class="insights-box">
+    <h2>Insights Inteligentes</h2>
+
+    <div id="insightBox" class="insight-card">
+        Carregando insights...
+    </div>
+</section>
+      
+      <!-- TRANSAÇÕES RECENTES -->
+      <div class="transactions-card reveal" style="animation-delay:.5s">
+        <div class="tx-header">
+          <h2>Transações Recentes</h2>
+          <a href="#" class="see-all">Ver todas →</a>
+          </div>
+        <ul class="tx-list" id="listaTransacoes" >
+        </ul>
+      </div>
+
+    </section>
+
+    <!-- METAS E CARTÕES -->
+    <section class="bottom-section">
+
+      <!-- METAS -->
+      <div class="goals-card reveal" style="animation-delay:.6s">
+        <h2>Metas Financeiras</h2>
+        <div class="goal-item">
+          <div class="goal-info">
+            <span class="goal-name">🏖️ Viagem Europa</span>
+            <span class="goal-values">R$ 8.400 / R$ 15.000</span>
+          </div>
+          <div class="goal-bar">
+            <div class="goal-fill" style="width:56%; background: var(--gold)"></div>
+          </div>
+        </div>
+        <div class="goal-item">
+          <div class="goal-info">
+            <span class="goal-name">🏠 Reserva de Emergência</span>
+            <span class="goal-values">R$ 18.000 / R$ 20.000</span>
+          </div>
+          <div class="goal-bar">
+            <div class="goal-fill" style="width:90%; background: var(--green)"></div>
+          </div>
+        </div>
+        <div class="goal-item">
+          <div class="goal-info">
+            <span class="goal-name">💻 Notebook Novo</span>
+            <span class="goal-values">R$ 2.100 / R$ 5.000</span>
+          </div>
+          <div class="goal-bar">
+            <div class="goal-fill" style="width:42%; background: var(--amber)"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- GRÁFICO DE PIZZA -->
+      <div class="categories-card reveal" style="animation-delay:.7s">
+        <h2>Gastos por Categoria</h2>
+
+        <div class="categoria-destaque" id="categoriaDestaque">
+          Categoria que mais consome:
+          <strong>Nenhuma ainda</strong>
         </div>
 
-        <div>
-            <h3>Despesa</h3>
-            <h2>R$500,00</h2>
-            <p>↓4,1% mês anterior</p>
+        <div class="grafico-container">
+          <canvas id="graficoPizza"></canvas>
         </div>
+      </div>
 
-        <div>
-            <h3>Economia</h3>
-            <h2>R$5000,00</h2>
-            <p>Meta:R$6000</p>
+      <!-- CARTÕES -->
+      <div class="cards-card reveal" style="animation-delay:.8s">
+        <h2>Meus Cartões</h2>
+        <div class="credit-card">
+          <div class="cc-top">
+            <span class="cc-bank">FinançasPro</span>
+            <span class="cc-type">VISA</span>
+          </div>
+          <div class="cc-number">•••• •••• •••• 4821</div>
+          <div class="cc-bottom">
+            <div>
+              <div class="cc-sublabel">TITULAR</div>
+              <div class="cc-name">LUCAS MENDES</div>
+            </div>
+            <div>
+              <div class="cc-sublabel">VALIDADE</div>
+              <div class="cc-name">09/29</div>
+            </div>
+          </div>
+          <div class="cc-chip"></div>
         </div>
+        <div class="cc-limit">
+          <span>Limite usado</span>
+          <span class="cc-limit-val">R$ 1.847,30 <small>/ R$ 8.000</small></span>
+        </div>
+        <div class="cc-limit-bar">
+          <div class="cc-limit-fill" style="width:23%"></div>
+        </div>
+      </div>
 
-    </main>
-
-    <aside>
-        <button type="button" onclick="Inicio()">Registrar<h1>⌂Início</h1>
-            </button>
-    </aside>
-<script src="script.js"></script>
-
-
-
-
-
-    
+    </section>
+  </main>
+  <script src="script.js"></script>
 </body>
+
+
 </html>
