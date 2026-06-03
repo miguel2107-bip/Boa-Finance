@@ -2,13 +2,47 @@
 // DADOS
 // ======================================================
 
-let patrimonio = 12500;
-
-let rentabilidade = 14.8;
-
 let perfil = "Moderado";
 
 let graficoCarteira = null;
+
+function calcularPatrimonio() {
+
+    return carteira.reduce((total, ativo) => {
+
+        return total + (parseFloat(ativo.valor) || 0);
+
+    }, 0);
+}
+
+function calcularRentabilidade() {
+
+    if (carteira.length === 0) return 0;
+
+    const taxas = {
+
+        "renda-fixa": 10,
+
+        "fiis": 12,
+
+        "acoes": 15,
+
+        "cripto": 20
+
+    };
+
+    let soma = 0;
+
+    carteira.forEach((ativo) => {
+
+        soma +=
+            ativo.porcentagem *
+            (taxas[ativo.classe] || 0);
+
+    });
+
+    return soma / 100;
+}
 
 // ======================================================
 // CARDS
@@ -16,20 +50,32 @@ let graficoCarteira = null;
 
 function atualizarCards() {
 
+    const patrimonio = calcularPatrimonio();
+
     document.getElementById("patrimonioTotal")
         .innerText =
-        "R$ " + patrimonio.toLocaleString("pt-BR");
+        patrimonio.toLocaleString(
+            "pt-BR",
+            {
+                style: "currency",
+                currency: "BRL"
+            }
+        );
 
     document.getElementById("rentabilidade")
-        .innerText =
-        rentabilidade + "%";
+    .innerText =
+    calcularRentabilidade().toFixed(1) + "%";
 
-    document.getElementById("perfilInvestidor")
-        .innerText =
-        perfil;
+    const perfilSalvo =
+    localStorage.getItem(
+        "perfilInvestidor"
+    ) || "Não definido";
+
+document.getElementById(
+    "perfilInvestidor"
+).innerText =
+    perfilSalvo;
 }
-
-atualizarCards();
 
 // ======================================================
 // GRÁFICO
@@ -201,25 +247,72 @@ function gerarInsights() {
 
     lista.innerHTML = "";
 
-    adicionarInsight(
-        "Diversificação",
-        "Você pode aumentar sua segurança diversificando seus investimentos."
-    );
+    const perfil =
+        localStorage.getItem(
+            "perfilInvestidor"
+        );
 
-    adicionarInsight(
-        "Renda Passiva",
-        "FIIs podem ajudar na geração de renda mensal."
-    );
+    if (perfil === "Conservador") {
 
-    adicionarInsight(
-        "Longo Prazo",
-        "Aportes consistentes geram crescimento exponencial."
-    );
+        adicionarInsight(
+            "Reserva de Emergência",
+            "Mantenha de 6 a 12 meses de despesas em investimentos de alta liquidez."
+        );
 
-    adicionarInsight(
-        "Perfil",
-        "Seu perfil moderado permite equilíbrio entre segurança e crescimento."
-    );
+        adicionarInsight(
+            "Segurança",
+            "Priorize renda fixa e ativos de menor volatilidade."
+        );
+
+        adicionarInsight(
+            "Diversificação",
+            "Evite concentrar todo o patrimônio em um único investimento."
+        );
+    }
+
+    else if (perfil === "Moderado") {
+
+        adicionarInsight(
+            "Equilíbrio",
+            "Combine renda fixa e renda variável para equilibrar risco e retorno."
+        );
+
+        adicionarInsight(
+            "Aportes",
+            "Realize aportes mensais para acelerar o crescimento patrimonial."
+        );
+
+        adicionarInsight(
+            "Rebalanceamento",
+            "Revise sua carteira periodicamente para manter sua estratégia."
+        );
+    }
+
+    else if (perfil === "Arrojado") {
+
+        adicionarInsight(
+            "Crescimento",
+            "Busque oportunidades de longo prazo sem ignorar a gestão de risco."
+        );
+
+        adicionarInsight(
+            "Diversificação",
+            "Mesmo assumindo mais risco, diversifique setores e classes de ativos."
+        );
+
+        adicionarInsight(
+            "Disciplina",
+            "Evite decisões emocionais durante períodos de volatilidade."
+        );
+    }
+
+    else {
+
+        adicionarInsight(
+            "Perfil não definido",
+            "Responda o questionário para receber recomendações personalizadas."
+        );
+    }
 }
 
 function adicionarInsight(titulo, texto) {
@@ -253,32 +346,7 @@ gerarInsights();
 let carteira =
     JSON.parse(
         localStorage.getItem("carteira")
-    ) || [
-
-        {
-            nome: "Ações",
-            porcentagem: 40,
-            classe: "acoes"
-        },
-
-        {
-            nome: "FIIs",
-            porcentagem: 25,
-            classe: "fiis"
-        },
-
-        {
-            nome: "Cripto",
-            porcentagem: 15,
-            classe: "cripto"
-        },
-
-        {
-            nome: "Renda Fixa",
-            porcentagem: 20,
-            classe: "renda-fixa"
-        }
-    ];
+    ) || [];
 
 function carregarCarteira() {
 
@@ -421,11 +489,17 @@ function adicionarAtivo() {
     const tipo =
         document.getElementById("tipoAtivo").value;
 
+        const valor =
+    parseFloat(
+        document.getElementById("valorAtivo").value
+    );
+
     // VALIDAÇÃO
 
     if (
         nome === "" ||
-        isNaN(porcentagem)
+        isNaN(porcentagem) ||
+        isNaN(valor)
     ) {
 
         alert("Preencha os campos.");
@@ -441,6 +515,8 @@ function adicionarAtivo() {
 
         porcentagem: porcentagem,
 
+        valor: valor,
+
         classe: tipo
     });
 
@@ -453,7 +529,9 @@ function adicionarAtivo() {
 
     carregarCarteira();
 
-    analisarPerfil();
+    atualizarCards();
+
+    //analisarPerfil();
 
     criarGraficoCarteira();
 
@@ -483,7 +561,11 @@ function removerAtivo(index) {
 
     carregarCarteira();
 
-    analisarPerfil();
+    atualizarCards();
+
+    gerarInsights();
+
+    //analisarPerfil();
 
     criarGraficoCarteira();
 }
@@ -567,4 +649,86 @@ graficoCarteira = new Chart(ctx, {
     });
 }
 
+function finalizarQuizPerfil() {
+
+    const q1 =
+        document.querySelector(
+            'input[name="q1"]:checked'
+        );
+
+    const q2 =
+        document.querySelector(
+            'input[name="q2"]:checked'
+        );
+
+    const q3 =
+        document.querySelector(
+            'input[name="q3"]:checked'
+        );
+
+    if (!q1 || !q2 || !q3) {
+
+        alert(
+            "Responda todas as perguntas."
+        );
+
+        return;
+    }
+
+    const total =
+        parseInt(q1.value) +
+        parseInt(q2.value) +
+        parseInt(q3.value);
+
+    let perfil = "";
+
+    if (total <= 4) {
+
+        perfil = "Conservador";
+
+    } else if (total <= 7) {
+
+        perfil = "Moderado";
+
+    } else {
+
+        perfil = "Arrojado";
+    }
+
+    localStorage.setItem(
+        "perfilInvestidor",
+        perfil
+    );
+
+    document.getElementById(
+        "perfilInvestidor"
+    ).innerText = perfil;
+
+    gerarInsights();
+
+    document.getElementById(
+        "modalPerfil"
+    ).style.display = "none";
+}
+
 criarGraficoCarteira();
+
+atualizarCards();
+
+const perfilSalvo =
+    localStorage.getItem(
+        "perfilInvestidor"
+    );
+
+if (perfilSalvo) {
+
+    document.getElementById(
+        "modalPerfil"
+    ).style.display = "none";
+
+} else {
+
+    document.getElementById(
+        "modalPerfil"
+    ).style.display = "flex";
+}
