@@ -275,6 +275,8 @@
         <input type="text" id="nomeAtivo" placeholder="Nome do ativo">
     
         <input type="number" id="porcentagemAtivo" placeholder="% da carteira">
+
+        <input type="number" id="valorAtivo" placeholder="Valor investido">
     
         <select id="tipoAtivo">
     
@@ -354,6 +356,58 @@
         </section>
 
     </main>
+
+    <div id="modalPerfil" class="modal-perfil">
+
+    <div class="modal-conteudo">
+
+        <h2>Descubra seu perfil de investidor</h2>
+
+        <div class="pergunta">
+
+            <p>Se seu investimento cair 20%, você:</p>
+
+            <label><input type="radio" name="q1" value="1"> Vende tudo</label>
+
+            <label><input type="radio" name="q1" value="2"> Espera recuperar</label>
+
+            <label><input type="radio" name="q1" value="3"> Compra mais</label>
+
+        </div>
+
+        <div class="pergunta">
+
+            <p>Seu prazo de investimento:</p>
+
+            <label><input type="radio" name="q2" value="1"> Até 1 ano</label>
+
+            <label><input type="radio" name="q2" value="2"> 1 a 5 anos</label>
+
+            <label><input type="radio" name="q2" value="3"> Mais de 5 anos</label>
+
+        </div>
+
+        <div class="pergunta">
+
+            <p>Seu objetivo principal:</p>
+
+            <label><input type="radio" name="q3" value="1"> Segurança</label>
+
+            <label><input type="radio" name="q3" value="2"> Equilíbrio</label>
+
+            <label><input type="radio" name="q3" value="3"> Crescimento</label>
+
+        </div>
+
+        <button onclick="finalizarQuizPerfil()">
+
+            Finalizar
+
+        </button>
+
+    </div>
+
+</div>
 
     <script src="js/investimentos.js"></script>
     <script type="module" src="js/perfil.js"></script>
