@@ -1,0 +1,108 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #0b1220;
+  color: #fff;
+}
+
+.container {
+  display: flex;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 220px;
+  height: 100vh;
+  background-color: #111827;
+  padding: 20px;
+}
+
+.sidebar h2 {
+  margin-bottom: 20px;
+  color: #fbbf24;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar li {
+  padding: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.sidebar li:hover {
+  background-color: #1f2937;
+}
+
+.sidebar .active {
+  background-color: #fbbf24;
+  color: #000;
+}
+
+/* Conteúdo */
+.main {
+  flex: 1;
+  padding: 30px;
+}
+
+/* Topo */
+.topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.btn {
+  background-color: #fbbf24;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Lista */
+.lista {
+  background-color: #111827;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  border-bottom: 1px solid #1f2937;
+}
+
+.item:last-child {
+  border-bottom: none;
+}
+
+.positivo {
+  color: #10b981;
+}
+
+.negativo {
+  color: #ef4444;
+}
+li {
+  width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border: 2px solid rgba(255, 255, 255, .2);
+    border-radius:40px ;
+    outline: none;
+    font-size: 16px;
+    color: white;
+    padding:20px 45px 20px 20px;
+}
