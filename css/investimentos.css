@@ -600,3 +600,106 @@
 
     height: 420px;
 }
+
+/* =========================
+   MODAL PERFIL INVESTIDOR
+========================= */
+
+.modal-perfil {
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.75);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    z-index: 9999;
+}
+
+.modal-conteudo {
+
+    width: 90%;
+
+    max-width: 650px;
+
+    background: #111827;
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    border-radius: 20px;
+
+    padding: 30px;
+
+    color: white;
+
+    box-shadow: 0 0 40px rgba(0,0,0,.4);
+}
+
+.modal-conteudo h2 {
+
+    text-align: center;
+
+    margin-bottom: 25px;
+
+    color: #00f5b4;
+}
+
+.pergunta {
+
+    margin-bottom: 25px;
+}
+
+.pergunta p {
+
+    font-weight: 600;
+
+    margin-bottom: 12px;
+}
+
+.pergunta label {
+
+    display: block;
+
+    margin-bottom: 10px;
+
+    cursor: pointer;
+
+    color: #cbd5e1;
+}
+
+.pergunta input {
+
+    margin-right: 8px;
+}
+
+.modal-conteudo button {
+
+    width: 100%;
+
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: #00f5b4;
+
+    color: #0f172a;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: .2s;
+}
+
+.modal-conteudo button:hover {
+
+    transform: translateY(-2px);
+}
