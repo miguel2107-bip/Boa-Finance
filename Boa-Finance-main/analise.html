@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análise Financeira</title>
+
+    <link rel="stylesheet" href="css/global.css">
+
+    <link rel="stylesheet" href="css/analise.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+     <aside class="sidebar">
+    <div class="sidebar-logo">
+      <span class="logo-icon">₿</span>
+      <span class="logo-text">Boa<b>Finance</b></span>
+    </div>
+  
+    <nav class="sidebar-nav">
+      <a href="home.html" class="nav-item">
+        <svg viewBox="0 0 24 24">
+          <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+          <polyline points="9 22 9 12 15 12 15 22" />
+        </svg>
+        <span>Início</span>
+      </a>
+  
+      <a href="orcamento.html" onclick="Orçamento()" class="nav-item">
+        <svg viewBox="0 0 24 24">
+          <rect x="2" y="3" width="20" height="14" rx="2" />
+          <line x1="8" y1="21" x2="16" y2="21" />
+          <line x1="12" y1="17" x2="12" y2="21" />
+        </svg>
+        <span>Simulador de gastos</span>
+      </a>
+
+      <a href="investimentos.html" class="nav-item">
+        <svg viewBox="0 0 24 24">
+          <path d="M3 17l6-6 4 4 8-8" />
+          <path d="M14 7h7v7" />
+        </svg>
+  
+        <span>Investimentos</span>
+      </a>
+      <a href="analise.html" class="nav-item active">
+        <svg viewBox="0 0 24 24">
+          <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+        </svg>
+        <span>Análise</span>
+      </a>
+      <a href="metas.html" class="nav-item">
+        <svg viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="3" />
+          <path d="M19.07 4.93A10 10 0 115 19.07" />
+        </svg>
+        <span>Metas</span>
+      </a>
+    </nav>
+  
+    <div class="sidebar-footer">
+  <div class="user-avatar" id="bola-avatar"></div>
+  
+  <div class="user-info">
+    <span id="letra-perfil" class="user-name">Carregando...</span>
+    <span class="user-plan">Plano Pro</span>
+  </div>
+  
+  <a href="index.html" class="logout-btn" title="Sair" id="btn-sair">
+    <svg viewBox="0 0 24 24">
+      <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4" />
+      <polyline points="16 17 21 12 16 7" />
+      <line x1="21" y1="12" x2="9" y2="12" />
+    </svg>
+  </a>
+</div>
+  </aside>
+
+    <!-- MAIN -->
+    <main class="main">
+
+        <header class="topbar">
+
+            <div>
+                <h1 class="page-title">
+                    Análise Financeira
+                </h1>
+
+                <span class="page-date">
+                    DRE do mês atual
+                </span>
+            </div>
+
+        </header>
+
+        <!-- CARDS -->
+        <section class="cards">
+
+            <div class="card">
+                <h3>Receitas</h3>
+                <div id="receitas">R$ 0,00</div>
+            </div>
+
+            <div class="card">
+                <h3>Despesas</h3>
+                <div id="despesas">R$ 0,00</div>
+            </div>
+
+            <div class="card">
+                <h3>Resultado</h3>
+                <div id="resultado">R$ 0,00</div>
+            </div>
+
+        </section>
+
+        <section class="kpi-grid">
+
+            <div class="kpi">
+                <div class="kpi-title">
+                    Taxa de Economia
+                </div>
+
+                <div class="kpi-value" id="taxaEconomia">
+                    0%
+                </div>
+            </div>
+
+            <div class="kpi">
+                <div class="kpi-title">
+                    Média de Gastos
+                </div>
+
+                <div class="kpi-value" id="mediaGastos">
+                    R$ 0
+                </div>
+            </div>
+
+            <div class="kpi">
+                <div class="kpi-title">
+                    Maior Categoria
+                </div>
+
+                <div class="kpi-value" id="maiorCategoria">
+                    -
+                </div>
+            </div>
+
+            <div class="kpi">
+                <div class="kpi-title">
+                    Saúde Financeira
+                </div>
+
+                <div class="kpi-value" id="saudeFinanceira">
+                    Boa
+                </div>
+            </div>
+
+        </section>
+
+        <!-- DRE -->
+        <section class="dre-box">
+
+            <h2>Demonstração do Resultado</h2>
+
+            <table>
+
+                <tr>
+                    <td>Receitas Totais</td>
+                    <td id="dreReceitas">R$ 0,00</td>
+                </tr>
+
+                <tr>
+                    <td>Despesas Totais</td>
+                    <td id="dreDespesas">R$ 0,00</td>
+                </tr>
+
+                <tr class="resultado-final">
+                    <td>Resultado Final</td>
+                    <td id="dreResultado">R$ 0,00</td>
+                </tr>
+
+            </table>
+
+        </section>
+
+        <!-- GRÁFICO -->
+        <section class="grafico-box section-box">
+
+            <h2>Gastos por Categoria</h2>
+
+            <div class="grafico-container">
+                <canvas id="graficoAnalise"></canvas>
+            </div>
+
+        </section>
+
+
+
+        <section class="grafico-evolucao section-box">
+
+            <div class="grafico-header section-header">
+
+                <h2>
+                    Evolução Financeira
+                </h2>
+
+                <p>
+                    Últimos 6 meses
+                </p>
+
+            </div>
+
+            <div class="grafico-wrapper">
+                <canvas id="graficoEvolucao"></canvas>
+            </div>
+
+        </section>
+
+        <section class="insights-section section-box">
+
+            <div class="insights-header section-header">
+
+                <h2>
+                    Insights Inteligentes
+                </h2>
+
+                <p>
+                    Análise automática do seu comportamento financeiro
+                </p>
+
+            </div>
+
+            <div id="listaInsights" class="insights-grid">
+
+            </div>
+
+        </section>
+    </main>
+    <script src="js/analise.js"></script>
+<script type="module" src="js/perfil.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Nova Transação</title>
+
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/nt.css">
+  <link rel="stylesheet" href="css/global.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=IBM+Plex+Mono:wght@400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <span class="logo-icon">₿</span>
+      <span class="logo-text">Boa<b>Finance</b></span>
+    </div>
+  
+    <nav class="sidebar-nav">
+      <a href="home.html" class="nav-item">
+        <svg viewBox="0 0 24 24">
+          <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+          <polyline points="9 22 9 12 15 12 15 22" />
+        </svg>
+        <span>Início</span>
+      </a>
+  
+      <a href="orcamento.html" onclick="Orçamento()" class="nav-item">
+        <svg viewBox="0 0 24 24">
+          <rect x="2" y="3" width="20" height="14" rx="2" />
+          <line x1="8" y1="21" x2="16" y2="21" />
+          <line x1="12" y1="17" x2="12" y2="21" />
+        </svg>
+        <span>Simulador de gastos</span>
+      </a>
+
+      <a href="investimentos.html" class="nav-item">
+        <svg viewBox="0 0 24 24">
+          <path d="M3 17l6-6 4 4 8-8" />
+          <path d="M14 7h7v7" />
+        </svg>
+        <span>Investimentos</span>
+      </a>
+      <a href="analise.html" class="nav-item">
+        <svg viewBox="0 0 24 24">
+          <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+        </svg>
+        <span>Análise</span>
+      </a>
+      <a href="metas.html" class="nav-item">
+        <svg viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="3" />
+          <path d="M19.07 4.93A10 10 0 115 19.07" />
+        </svg>
+        <span>Metas</span>
+      </a>
+    </nav>
+  
+    <div class="sidebar-footer">
+      <div class="user-avatar" id="bola-avatar">L</div>
+      <div class="user-info">
+        <span id="letra-perfil" class="user-name">Carregando...</span>
+        <span class="user-plan">Plano Pro</span>
+      </div>
+      <a href="index.html" class="logout-btn" title="Sair" id="btn-sair">
+        <svg viewBox="0 0 24 24">
+          <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4" />
+          <polyline points="16 17 21 12 16 7" />
+          <line x1="21" y1="12" x2="9" y2="12" />
+        </svg>
+      </a>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div class="topbar-left">
+        <h1 class="page-title">Nova Transação</h1>
+        <span class="page-date" id="dataAtual"></span>
+      </div>
+    </header>
+
+    <section class="nova-transacao-container">
+      <div class="nova-transacao-card">
+        <div class="card-header">
+          <h2>Adicionar Transação</h2>
+          <p>Registre receitas e despesas do seu controle financeiro.</p>
+        </div>
+
+        <div class="form-grid">
+          <div class="input-group">
+            <label>Descrição</label>
+            <input type="text" id="descricao" placeholder="Ex: Salário, Mercado...">
+          </div>
+
+          <div class="input-group">
+            <label>Valor</label>
+            <input type="number" id="valor" placeholder="0,00">
+          </div>
+
+          <div class="input-group">
+            <label>Tipo</label>
+            <select id="tipo" onchange="atualizarCategorias()">
+              <option value="Receita">Receita</option>
+              <option value="Despesa">Despesa</option>
+            </select>
+          </div>
+
+          <div class="input-group">
+            <label>Categoria</label>
+            <select id="categoria">
+              </select>
+          </div>
+
+          <div class="input-group full">
+            <label>Data</label>
+            <input type="date" id="data">
+          </div>
+        </div>
+
+        <button class="btn-salvar" onclick="salvarTransacao()">
+          Salvar Transação
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/script.js"></script>
+  <script src="js/transacoes.js"></script>
+  <script type="module" src="js/perfil.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="css/estilo.css">
+    <title>Login-Boa Finance</title>
+    <style>
+        /* Estilo rápido para controlar a troca de telas sem quebrar seu CSS principal */
+        .box-recuperar { display: none; }
+        .mostrar { display: block !important; }
+        .esconder { display: none !important; }
+    </style>
+</head>
+
+<body>
+    <main class="container">
+        <form id="form-auth">
+            
+            <div id="tela-login" class="box-login">
+                <h1>Login</h1>
+
+                <div class="input-box">
+                    <input type="email" id="email" placeholder="Usuário">
+                    <i class="bx bxs-user"></i>
+                </div>
+
+                <div class="input-box">
+                    <input type="password" id="senha" placeholder="Senha">
+                    <i class="bx bxs-lock-alt"></i>
+                </div>
+
+                <div class="remember-forgot">
+                    <label>
+                        <input type="checkbox" id="lembrar">
+                        Lembrar senha
+                    </label>
+                    <a href="#" onclick="MostrarTelaRecuperar(event)">Esqueci a senha</a>
+                </div>
+
+                <button type="button" class="login" onclick="Entrar()">Login</button>
+
+                <div class="register-link">
+                    <p>Não tem uma conta? <a href="#" onclick="Registrar()">Cadastre-se</a></p>
+                </div>
+            </div>
+
+            <div id="tela-recuperar" class="box-recuperar">
+                <h1>Recuperar Senha</h1>
+                <p style="text-align: center; color: rgba(255,255,255,0.6); margin-bottom: 20px; font-size: 14px;">
+                    Insira seu e-mail cadastrado para receber o link de redefinição.
+                </p>
+
+                <div class="input-box">
+                    <input type="email" id="rec-email" placeholder="Seu E-mail">
+                    <i class="bx bxs-envelope"></i>
+                </div>
+
+                <button type="button" class="login" onclick="EnviarLinkRedefinicao()">Enviar Email</button>
+
+                <div class="register-link" style="margin-top: 20px;">
+                    <p><a href="#" onclick="MostrarTelaLogin(event)">Voltar para o Login</a></p>
+                </div>
+            </div>
+
+        </form>
+    </main>
+
+    <script type="module" src="js/firebaseconfig.js"></script>
+</body>
+
+</html>

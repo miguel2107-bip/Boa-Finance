@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Investimentos</title>
+
+    <link rel="stylesheet" href="css/global.css">
+
+    <link rel="stylesheet" href="css/investimentos.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+
+     <aside class="sidebar">
+    <div class="sidebar-logo">
+      <span class="logo-icon">₿</span>
+      <span class="logo-text">Boa<b>Finance</b></span>
+    </div>
+  
+    <nav class="sidebar-nav">
+      <a href="home.html" class="nav-item">
+        <svg viewBox="0 0 24 24">
+          <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+          <polyline points="9 22 9 12 15 12 15 22" />
+        </svg>
+        <span>Início</span>
+      </a>
+  
+      <a href="orcamento.html" onclick="Orçamento()" class="nav-item">
+        <svg viewBox="0 0 24 24">
+          <rect x="2" y="3" width="20" height="14" rx="2" />
+          <line x1="8" y1="21" x2="16" y2="21" />
+          <line x1="12" y1="17" x2="12" y2="21" />
+        </svg>
+        <span>Simulador de gastos</span>
+      </a>
+
+      <a href="investimentos.html" class="nav-item active">
+        <svg viewBox="0 0 24 24">
+          <path d="M3 17l6-6 4 4 8-8" />
+          <path d="M14 7h7v7" />
+        </svg>
+  
+        <span>Investimentos</span>
+      </a>
+      <a href="analise.html" class="nav-item">
+        <svg viewBox="0 0 24 24">
+          <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+        </svg>
+        <span>Análise</span>
+      </a>
+      <a href="metas.html" class="nav-item">
+        <svg viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="3" />
+          <path d="M19.07 4.93A10 10 0 115 19.07" />
+        </svg>
+        <span>Metas</span>
+      </a>
+    </nav>
+  
+    <div class="sidebar-footer">
+  <div class="user-avatar" id="bola-avatar"></div>
+  
+  <div class="user-info">
+    <span id="letra-perfil" class="user-name">Carregando...</span>
+    <span class="user-plan">Plano Pro</span>
+  </div>
+  
+  <a href="index.html" class="logout-btn" title="Sair" id="btn-sair">
+    <svg viewBox="0 0 24 24">
+      <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4" />
+      <polyline points="16 17 21 12 16 7" />
+      <line x1="21" y1="12" x2="9" y2="12" />
+    </svg>
+  </a>
+</div>
+  </aside>
+
+    <!-- MAIN -->
+
+    <main class="main">
+
+        <header class="topbar">
+
+            <h1 class="page-title">
+                Investimentos
+            </h1>
+
+            <p class="page-date">
+                Controle e crescimento patrimonial
+            </p>
+
+        </header>
+
+        <!-- CARDS -->
+
+        <section class="invest-grid">
+
+            <div class="invest-card">
+
+                <span class="invest-title">
+                    Patrimônio Total
+                </span>
+
+                <h2 id="patrimonioTotal">
+                    R$ 0,00
+                </h2>
+
+            </div>
+
+            <div class="invest-card">
+
+                <span class="invest-title">
+                    Rentabilidade
+                </span>
+
+                <h2 id="rentabilidade">
+                    0%
+                </h2>
+
+            </div>
+
+            <div class="invest-card">
+
+                <span class="invest-title">
+                    Perfil
+                </span>
+
+                <h2 id="perfilInvestidor">
+                    Moderado
+                </h2>
+
+            </div>
+
+        </section>
+
+        <!-- GRÁFICO -->
+
+        <section class="grafico-investimentos section-box">
+
+            <div class="grafico-header section-header">
+
+                <h2>
+                    Evolução do Saldo
+                </h2>
+
+                <p>
+                    Últimos 6 meses
+                </p>
+
+            </div>
+
+            <div class="grafico-wrapper">
+
+                <canvas id="graficoPatrimonio"></canvas>
+
+            </div>
+
+        </section>
+
+        <!-- SIMULADOR -->
+
+        <section class="simulador-box section-box">
+
+            <div class="simulador-header section-header">
+
+                <h2>
+                    Simulador de Investimentos
+                </h2>
+
+                <p>
+                    Descubra quanto seu dinheiro pode render
+                </p>
+
+            </div>
+
+            <div class="simulador-grid">
+
+                <div class="input-group">
+
+                    <label>
+                        Valor mensal
+                    </label>
+
+                    <input
+                        type="number"
+                        id="aporteMensal"
+                        placeholder="100">
+
+                </div>
+
+                <div class="input-group">
+
+                    <label>
+                        Taxa anual (%)
+                    </label>
+
+                    <input
+                        type="number"
+                        id="taxaJuros"
+                        placeholder="12">
+
+                </div>
+
+                <div class="input-group">
+
+                    <label>
+                        Tempo (anos)
+                    </label>
+
+                    <input
+                        type="number"
+                        id="tempoInvestimento"
+                        placeholder="5">
+
+                </div>
+
+            </div>
+
+            <button onclick="simularInvestimento()" class="btn-simular">
+
+                Simular Investimento
+
+            </button>
+
+            <div class="resultado-simulador">
+
+                <h3>
+                    Resultado estimado
+                </h3>
+
+                <div id="resultadoSimulador">
+
+                    R$ 0,00
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- CARTEIRA -->
+
+<section class="carteira-section section-box">
+
+    <div class="carteira-header section-header">
+
+        <h2>
+            Carteira de Investimentos
+        </h2>
+
+        <p>
+            Distribuição atual dos ativos
+        </p>
+
+    </div>
+
+    <div class="form-carteira">
+    
+        <input type="text" id="nomeAtivo" placeholder="Nome do ativo">
+    
+        <input type="number" id="porcentagemAtivo" placeholder="% da carteira">
+
+        <input type="number" id="valorAtivo" placeholder="Valor investido">
+    
+        <select id="tipoAtivo">
+    
+            <option value="acoes">
+                Ações
+            </option>
+    
+            <option value="fiis">
+                FIIs
+            </option>
+    
+            <option value="cripto">
+                Cripto
+            </option>
+    
+            <option value="renda-fixa">
+                Renda Fixa
+            </option>
+    
+        </select>
+    
+        <button onclick="adicionarAtivo()">
+            Adicionar
+        </button>
+    
+    </div>
+
+    <div class="carteira-grid"
+        id="carteiraGrid">
+
+    </div>
+
+</section>
+
+<section class="grafico-investimentos">
+
+    <div class="grafico-header">
+
+        <h2>
+            Distribuição da Carteira
+        </h2>
+
+        <p>
+            Diversificação dos investimentos
+        </p>
+
+    </div>
+
+    <div class="grafico-investimentos-wrapper">
+
+        <canvas id="graficoCarteira"></canvas>
+
+    </div>
+
+</section>
+
+        <!-- INSIGHTS -->
+
+        <section class="insights-section section-box">
+
+            <div class="insights-header section-header">
+
+                <h2>
+                    Insights de Investimento
+                </h2>
+
+                <p>
+                    Recomendações automáticas
+                </p>
+
+            </div>
+
+            <div class="insights-grid" id="listaInsights">
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <div id="modalPerfil" class="modal-perfil">
+
+    <div class="modal-conteudo">
+
+        <h2>Descubra seu perfil de investidor</h2>
+
+        <div class="pergunta">
+
+            <p>Se seu investimento cair 20%, você:</p>
+
+            <label><input type="radio" name="q1" value="1"> Vende tudo</label>
+
+            <label><input type="radio" name="q1" value="2"> Espera recuperar</label>
+
+            <label><input type="radio" name="q1" value="3"> Compra mais</label>
+
+        </div>
+
+        <div class="pergunta">
+
+            <p>Seu prazo de investimento:</p>
+
+            <label><input type="radio" name="q2" value="1"> Até 1 ano</label>
+
+            <label><input type="radio" name="q2" value="2"> 1 a 5 anos</label>
+
+            <label><input type="radio" name="q2" value="3"> Mais de 5 anos</label>
+
+        </div>
+
+        <div class="pergunta">
+
+            <p>Seu objetivo principal:</p>
+
+            <label><input type="radio" name="q3" value="1"> Segurança</label>
+
+            <label><input type="radio" name="q3" value="2"> Equilíbrio</label>
+
+            <label><input type="radio" name="q3" value="3"> Crescimento</label>
+
+        </div>
+
+        <button onclick="finalizarQuizPerfil()">
+
+            Finalizar
+
+        </button>
+
+    </div>
+
+</div>
+
+    <script src="js/investimentos.js"></script>
+    <script type="module" src="js/perfil.js"></script>
+
+</body>
+
+</html>

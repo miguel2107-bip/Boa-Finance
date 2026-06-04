@@ -1,0 +1,705 @@
+/* =========================================================
+   INVEST GRID
+========================================================= */
+
+.invest-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+
+    gap: 20px;
+
+    margin-bottom: 28px;
+}
+
+.invest-card {
+
+    background: linear-gradient(
+        180deg,
+        rgba(17,24,39,0.96),
+        rgba(15,23,42,0.96)
+    );
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    padding: 28px;
+
+    box-shadow: var(--shadow);
+
+    transition: 0.25s;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.invest-card:hover {
+
+    transform: translateY(-5px);
+}
+
+.invest-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 200%;
+
+    height: 200%;
+
+    top: -50%;
+
+    left: -50%;
+
+    background: radial-gradient(
+        circle,
+        rgba(0,245,180,0.08),
+        transparent 60%
+    );
+
+    transform: scale(0);
+
+    transition: 0.5s;
+}
+
+.invest-card:hover::before {
+
+    transform: scale(1);
+}
+
+.invest-title {
+
+    color: var(--muted);
+
+    font-size: 14px;
+}
+
+.invest-card h2 {
+
+    margin-top: 12px;
+
+    font-size: 34px;
+}
+
+/* =========================================================
+   SIMULADOR
+========================================================= */
+
+.simulador-box {
+
+    background: linear-gradient(
+        180deg,
+        rgba(17,24,39,0.96),
+        rgba(15,23,42,0.96)
+    );
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    padding: 28px;
+
+    margin-bottom: 28px;
+
+    box-shadow: var(--shadow);
+}
+
+.simulador-header {
+
+    margin-bottom: 24px;
+}
+
+.simulador-header p {
+
+    color: var(--muted);
+
+    margin-top: 6px;
+}
+
+.simulador-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+
+    gap: 20px;
+
+    margin-bottom: 24px;
+}
+
+.input-group {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+.input-group label {
+
+    color: var(--muted);
+
+    font-size: 14px;
+}
+
+.input-group input {
+
+    background: rgba(255,255,255,0.03);
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    border-radius: 16px;
+
+    padding: 16px;
+
+    color: white;
+
+    outline: none;
+
+    font-size: 16px;
+}
+
+.btn-simular {
+
+    background: linear-gradient(
+        135deg,
+        #00f5b4,
+        #00c896
+    );
+
+    border: none;
+
+    color: #07111f;
+
+    padding: 16px 22px;
+
+    border-radius: 16px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+}
+
+.btn-simular:hover {
+
+    transform: translateY(-3px);
+}
+
+.resultado-simulador {
+
+    margin-top: 28px;
+}
+
+.resultado-simulador h3 {
+
+    color: var(--muted);
+
+    margin-bottom: 10px;
+}
+
+#resultadoSimulador {
+
+    font-size: 40px;
+
+    font-weight: 700;
+
+    color: var(--green);
+}
+
+/* =========================================================
+   INSIGHTS
+========================================================= */
+
+.insights-section {
+
+    background: linear-gradient(
+        180deg,
+        rgba(17,24,39,0.96),
+        rgba(15,23,42,0.96)
+    );
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    padding: 28px;
+
+    box-shadow: var(--shadow);
+}
+
+.insights-header {
+
+    margin-bottom: 24px;
+}
+
+.insights-header p {
+
+    color: var(--muted);
+
+    margin-top: 6px;
+}
+
+.insights-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
+
+    gap: 18px;
+}
+
+.insight-item {
+
+    background: rgba(255,255,255,0.03);
+
+    border: 1px solid rgba(255,255,255,0.05);
+
+    border-radius: 20px;
+
+    padding: 20px;
+
+    transition: 0.25s;
+}
+
+.insight-item:hover {
+
+    transform: translateY(-4px);
+
+    border-color: rgba(0,245,180,0.15);
+}
+
+.insight-tag {
+
+    display: inline-block;
+
+    padding: 6px 12px;
+
+    border-radius: 999px;
+
+    background: rgba(0,245,180,0.12);
+
+    color: #00f5b4;
+
+    font-size: 12px;
+
+    margin-bottom: 14px;
+}
+
+.insight-text {
+
+    line-height: 1.6;
+
+    color: #dbeafe;
+}
+
+/* =========================================================
+   CARTEIRA
+========================================================= */
+
+.carteira-section {
+
+    background: linear-gradient(
+        180deg,
+        rgba(17,24,39,0.96),
+        rgba(15,23,42,0.96)
+    );
+
+    border: 1px solid rgba(255,255,255,0.06);
+
+    border-radius: 24px;
+
+    padding: 28px;
+
+    margin-bottom: 28px;
+
+    box-shadow: 0 10px 35px rgba(0,0,0,0.35);
+}
+
+.carteira-header {
+
+    margin-bottom: 24px;
+}
+
+.carteira-header p {
+
+    color: #94a3b8;
+
+    margin-top: 6px;
+}
+
+.carteira-grid {
+
+    display: grid;
+
+    gap: 22px;
+}
+
+.ativo-item {
+
+    background: rgba(255,255,255,0.03);
+
+    border: 1px solid rgba(255,255,255,0.05);
+
+    border-radius: 20px;
+
+    padding: 20px;
+
+    transition: 0.25s;
+}
+
+.ativo-item:hover {
+
+    transform: translateY(-3px);
+
+    border-color: rgba(0,245,180,0.15);
+}
+
+.ativo-topo {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-bottom: 14px;
+
+    font-weight: 600;
+}
+
+.barra {
+
+    width: 100%;
+
+    height: 14px;
+
+    background: rgba(255,255,255,0.05);
+
+    border-radius: 999px;
+
+    overflow: hidden;
+}
+
+.barra-fill {
+
+    height: 100%;
+
+    border-radius: 999px;
+
+    transition: 1s;
+}
+
+/* TIPOS */
+
+.acoes {
+
+    width: 40%;
+
+    background: linear-gradient(
+        90deg,
+        #00f5b4,
+        #00c896
+    );
+}
+
+.fiis {
+
+    width: 25%;
+
+    background: linear-gradient(
+        90deg,
+        #3b82f6,
+        #2563eb
+    );
+}
+
+.cripto {
+
+    width: 15%;
+
+    background: linear-gradient(
+        90deg,
+        #f59e0b,
+        #d97706
+    );
+}
+
+.renda-fixa {
+
+    width: 20%;
+
+    background: linear-gradient(
+        90deg,
+        #a855f7,
+        #7e22ce
+    );
+}
+
+/* =========================================================
+   FORMULÁRIO CARTEIRA
+========================================================= */
+
+.form-carteira {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr
+        180px
+        180px
+        160px;
+
+    gap: 16px;
+
+    margin-bottom: 28px;
+}
+
+.form-carteira input,
+.form-carteira select {
+
+    background: rgba(255,255,255,0.04);
+
+    border: 1px solid rgba(255,255,255,0.06);
+
+    border-radius: 16px;
+
+    padding: 14px 16px;
+
+    color: white;
+
+    outline: none;
+
+    font-family: 'Outfit', sans-serif;
+
+    transition: 0.25s;
+}
+
+.form-carteira input:focus,
+.form-carteira select:focus {
+
+    border-color: rgba(0,245,180,0.4);
+
+    box-shadow:
+        0 0 0 4px
+        rgba(0,245,180,0.08);
+}
+
+.form-carteira button {
+
+    border: none;
+
+    border-radius: 16px;
+
+    background: linear-gradient(
+        135deg,
+        #00f5b4,
+        #00c896
+    );
+
+    color: #07111f;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+}
+
+.form-carteira button:hover {
+
+    transform: translateY(-2px);
+
+    opacity: 0.92;
+}
+
+/* RESPONSIVO */
+
+@media(max-width:900px) {
+
+    .form-carteira {
+
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =========================================================
+   BOTÃO REMOVER
+========================================================= */
+
+.ativo-acoes {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+.btn-remover {
+
+    width: 28px;
+
+    height: 28px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: rgba(239,68,68,0.15);
+
+    color: #ef4444;
+
+    cursor: pointer;
+
+    font-size: 18px;
+
+    transition: 0.25s;
+}
+
+.btn-remover:hover {
+
+    transform: scale(1.08);
+
+    background: rgba(239,68,68,0.25);
+}
+
+/* =========================================================
+   GRÁFICO INVESTIMENTOS
+========================================================= */
+
+.grafico-investimentos {
+
+    margin-top: 24px;
+
+    background: linear-gradient(
+        180deg,
+        rgba(17,24,39,0.96),
+        rgba(15,23,42,0.96)
+    );
+
+    border: 1px solid rgba(255,255,255,0.05);
+
+    border-radius: 24px;
+
+    padding: 28px;
+
+    box-shadow:
+        0 10px 35px rgba(0,0,0,0.35);
+}
+
+.grafico-investimentos-wrapper {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 420px;
+}
+
+/* =========================
+   MODAL PERFIL INVESTIDOR
+========================= */
+
+.modal-perfil {
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.75);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    z-index: 9999;
+}
+
+.modal-conteudo {
+
+    width: 90%;
+
+    max-width: 650px;
+
+    background: #111827;
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    border-radius: 20px;
+
+    padding: 30px;
+
+    color: white;
+
+    box-shadow: 0 0 40px rgba(0,0,0,.4);
+}
+
+.modal-conteudo h2 {
+
+    text-align: center;
+
+    margin-bottom: 25px;
+
+    color: #00f5b4;
+}
+
+.pergunta {
+
+    margin-bottom: 25px;
+}
+
+.pergunta p {
+
+    font-weight: 600;
+
+    margin-bottom: 12px;
+}
+
+.pergunta label {
+
+    display: block;
+
+    margin-bottom: 10px;
+
+    cursor: pointer;
+
+    color: #cbd5e1;
+}
+
+.pergunta input {
+
+    margin-right: 8px;
+}
+
+.modal-conteudo button {
+
+    width: 100%;
+
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: #00f5b4;
+
+    color: #0f172a;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: .2s;
+}
+
+.modal-conteudo button:hover {
+
+    transform: translateY(-2px);
+}
