@@ -17,8 +17,7 @@
 
 <body>
 
-  <!-- SIDEBAR -->
-   <aside class="sidebar">
+  <aside class="sidebar">
     <div class="sidebar-logo">
       <span class="logo-icon">₿</span>
       <span class="logo-text">Boa<b>Finance</b></span>
@@ -47,7 +46,6 @@
           <path d="M3 17l6-6 4 4 8-8" />
           <path d="M14 7h7v7" />
         </svg>
-  
         <span>Investimentos</span>
       </a>
       <a href="analise.html" class="nav-item">
@@ -66,47 +64,37 @@
     </nav>
   
     <div class="sidebar-footer">
-  <div class="user-avatar" id="bola-avatar">L</div>
-  
-  <div class="user-info">
-    <span id="letra-perfil" class="user-name">Carregando...</span>
-    <span class="user-plan">Plano Pro</span>
-  </div>
-  
-  <a href="index.html" class="logout-btn" title="Sair" id="btn-sair">
-    <svg viewBox="0 0 24 24">
-      <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4" />
-      <polyline points="16 17 21 12 16 7" />
-      <line x1="21" y1="12" x2="9" y2="12" />
-    </svg>
-  </a>
-</div>
+      <div class="user-avatar" id="bola-avatar">L</div>
+      <div class="user-info">
+        <span id="letra-perfil" class="user-name">Carregando...</span>
+        <span class="user-plan">Plano Pro</span>
+      </div>
+      <a href="index.html" class="logout-btn" title="Sair" id="btn-sair">
+        <svg viewBox="0 0 24 24">
+          <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4" />
+          <polyline points="16 17 21 12 16 7" />
+          <line x1="21" y1="12" x2="9" y2="12" />
+        </svg>
+      </a>
+    </div>
   </aside>
 
-  <!-- MAIN -->
   <main class="main">
-
     <header class="topbar">
-
       <div class="topbar-left">
         <h1 class="page-title">Nova Transação</h1>
         <span class="page-date" id="dataAtual"></span>
       </div>
-
     </header>
 
-    <!-- CARD -->
     <section class="nova-transacao-container">
-
       <div class="nova-transacao-card">
-
         <div class="card-header">
           <h2>Adicionar Transação</h2>
           <p>Registre receitas e despesas do seu controle financeiro.</p>
         </div>
 
         <div class="form-grid">
-
           <div class="input-group">
             <label>Descrição</label>
             <input type="text" id="descricao" placeholder="Ex: Salário, Mercado...">
@@ -119,45 +107,34 @@
 
           <div class="input-group">
             <label>Tipo</label>
-            <select id="tipo">
-              <option>Receita</option>
-              <option>Despesa</option>
+            <select id="tipo" onchange="atualizarCategorias()">
+              <option value="Receita">Receita</option>
+              <option value="Despesa">Despesa</option>
             </select>
           </div>
 
           <div class="input-group">
             <label>Categoria</label>
             <select id="categoria">
-              <option>Alimentação</option>
-              <option>Transporte</option>
-              <option>Lazer</option>
-              <option>Saúde</option>
-              <option>Moradia</option>
-              <option>Outros</option>
-              <option>Salário</option>
-            </select>
+              </select>
           </div>
 
           <div class="input-group full">
             <label>Data</label>
             <input type="date" id="data">
           </div>
-
         </div>
 
         <button class="btn-salvar" onclick="salvarTransacao()">
           Salvar Transação
         </button>
-
       </div>
-
     </section>
-
   </main>
 
-  <script src="js/script.js"></script>]
+  <script src="js/script.js"></script>
   <script src="js/transacoes.js"></script>
   <script type="module" src="js/perfil.js"></script>
-
 </body>
+
 </html>
