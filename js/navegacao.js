@@ -28,3 +28,30 @@ function Orçamento() {
 function NT() {
     window.location.href = "nt.html"
 }
+
+
+const menuToggle =
+    document.getElementById("menu-toggle");
+
+const sidebar =
+    document.querySelector(".sidebar");
+
+const overlay =
+    document.getElementById("overlay");
+
+if (menuToggle && sidebar && overlay) {
+
+    menuToggle.addEventListener("click", () => {
+
+        sidebar.classList.toggle("aberta");
+
+        overlay.classList.toggle("ativo");
+    });
+
+    overlay.addEventListener("click", () => {
+
+        sidebar.classList.remove("aberta");
+
+        overlay.classList.remove("ativo");
+    });
+}
