@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="css/estilo.css">
     <title>Login-Boa Finance</title>
     <style>
-        /* Estilo rápido para controlar a troca de telas sem quebrar seu CSS principal */
         .box-recuperar { display: none; }
         .mostrar { display: block !important; }
         .esconder { display: none !important; }
@@ -34,8 +33,7 @@
 
                 <div class="remember-forgot">
                     <label>
-                        <input type="checkbox" id="lembrar">
-                        Lembrar senha
+                        <input type="checkbox" id="lembrar"> Lembrar senha
                     </label>
                     <a href="#" onclick="MostrarTelaRecuperar(event)">Esqueci a senha</a>
                 </div>
@@ -43,7 +41,7 @@
                 <button type="button" class="login" onclick="Entrar()">Login</button>
 
                 <div class="register-link">
-                    <p>Não tem uma conta? <a href="#" onclick="Registrar()">Cadastre-se</a></p>
+                    <p>Não tem uma conta? <a href="registrar.html">Cadastre-se</a></p>
                 </div>
             </div>
 
@@ -64,11 +62,9 @@
                     <p><a href="#" onclick="MostrarTelaLogin(event)">Voltar para o Login</a></p>
                 </div>
             </div>
-
         </form>
     </main>
 
-    <script type="module" src="js/firebaseconfig.js"></script>
+    <script src="js/auth.js"></script>
 </body>
-
 </html>

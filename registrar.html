@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resgistrar-Boa-Finance</title>
+    <title>Registrar - Boa Finance</title>
     <link rel="stylesheet" href="css/rstyle.css">
 </head>
 
@@ -12,29 +12,29 @@
     <main class="register">
         <form>
             <h1>Registrar</h1>
+            
             <div>
-                    <input type="email" id="reg-email" placeholder="Email">
-                </div>
+                <input type="email" id="reg-email" placeholder="Email">
+            </div>
 
-                <div class="senha">
-                    <input type="password" id="reg-senha" placeholder="Senha">
-                </div>
+            <div class="senha">
+                <input type="password" id="reg-senha" placeholder="Senha">
+            </div>
 
-                <div class="Confirmar">
-                    <input type="password" id="reg-confirmar-senha" placeholder="Confirmar senha">
-                </div>
+            <div class="Confirmar">
+                <input type="password" id="reg-confirmar-senha" placeholder="Confirmar senha">
+            </div>
 
-                <div>
-                    <button type="button" class="Registrar" onclick="Register()">Registrar</button>
-                </div>
+            <div>
+                <button type="button" class="Registrar" onclick="CadastrarUsuario()">Registrar</button>
+            </div>
 
-                <div>
-                    <button type="button" class="Login" onclick="Logar()">Voltar</button>
-                </div>
+            <div>
+                <button type="button" class="Login" onclick="window.location.href='index.html'">Voltar</button>
             </div>
         </form>
     </main>
-    <script type="module" src="js/firebaseconfig.js"></script>
+    
+    <script src="js/auth.js"></script>
 </body>
-
 </html>
