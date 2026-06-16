@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url(https://shrill-sapphire-yfrjilfjvz.edgeone.app/fundo.boa.png);
+    background-size: cover;
+    background-position: center;
+    background-color: #050505;
+}
+
+/* Container de Registro com efeito Frosted Glass */
+.register {
+    width: 420px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, .1);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 10px;
+    color: white;
+    padding: 30px 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.7s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(25px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.register h1 {
+    font-size: 28px;
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    background: linear-gradient(90deg, #fff, #00ff22);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Estilização dos labels */
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+    margin-left: 15px;
+}
+
+/* Caixas de input com espaçamento corrigido */
+.email {
+    margin-bottom: 5px;
+}
+
+.senha, .Confirmar {
+    margin-top: 15px; /* Cria o espaço perfeito entre os blocos */
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    height: 50px;
+    background-color: transparent;
+    border: 2px solid rgba(255, 255, 255, .2);
+    border-radius: 40px;
+    outline: none;
+    font-size: 16px;
+    color: white;
+    padding: 0 20px;
+    transition: 0.3s;
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+input:focus {
+    border-color: #00ff22;
+}
+
+/* Botões padronizados */
+.Registrar, .Login {
+    width: 100%;
+    height: 45px;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    background-color: transparent;
+    color: white;
+    transition: 0.5s;
+}
+
+/* Botão Principal (Registrar) - Mesma cor inicial do Voltar */
+.Registrar {
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    margin-top: 25px; /* Empurra um pouco mais para separar do formulário */
+}
+
+/* Efeito Hover do Registrar - Acende em verde ao passar o mouse */
+.Registrar:hover {
+    background-color: #00ff22;
+    color: #050505;
+    border-color: #00ff22;
+    box-shadow: 0 0 20px rgba(0, 255, 34, 0.4);
+}
+
+/* Botão Secundário (Login / Voltar) */
+.Login {
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    margin-top: 12px; /* Mantém os botões organizados e separados entre si */
+}
+
+.Login:hover {
+    border-color: white;
+    background-color: rgba(255, 255, 255, 0.1);
+}
