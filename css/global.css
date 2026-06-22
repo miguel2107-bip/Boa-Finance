@@ -119,3 +119,98 @@ h1, h2, h3, h4, h5, h6 {
     .page-title { font-size: 32px; }
     .menu-toggle { display: block !important; }
 }
+
+@media(max-width:850px){
+
+    .sidebar{
+        display:flex !important;
+        position:fixed !important;
+        left:0;
+        top:0;
+        width:260px;
+        height:100vh;
+        transform:translateX(-100%);
+        transition:0.3s;
+        z-index:9998;
+    }
+
+
+    .sidebar.aberta{
+        transform:translateX(0) !important;
+    }
+
+
+    .menu-toggle {
+
+    display: none;
+
+    position: fixed;
+
+    top: 18px;
+
+    left: 18px;
+
+    z-index: 9999;
+
+    width: 48px;
+
+    height: 48px;
+
+    border-radius: 16px;
+
+    border: 1px solid rgba(0,245,180,0.25);
+
+    background:
+        linear-gradient(
+            135deg,
+            #00f5b4,
+            #00c896
+        );
+
+    color: #07111f;
+
+    font-size: 26px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    align-items: center;
+
+    justify-content: center;
+
+    box-shadow:
+        0 8px 25px rgba(0,245,180,0.25);
+
+    transition: 0.25s;
+}
+
+
+.menu-toggle:hover {
+
+    transform: scale(1.08);
+
+}
+
+}
+
+.overlay{
+
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,0.6);
+
+    z-index:9997;
+
+}
+
+
+.overlay.ativo{
+
+    display:block;
+
+}
